@@ -1,0 +1,1927 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    --primary-color: #008CBA;
+    --secondary-color: #0b2d39;
+    --background-color: #FFFFFF;
+    --text-color: #333333;
+    --light-gray-bg: #f4f4f4;
+    --dark-blue-bg: #0c1a2e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+/* --- Dynamic Underline for all H2 tags (except in hero section) --- */
+section:not(.hero) h2 {
+    position: relative;
+    /* Cần thiết để định vị pseudo-element */
+    padding-bottom: 5px;
+    /* Tạo không gian cho gạch chân */
+    /* Define default custom properties, will be overridden by JS */
+    --underline-width: 80px;
+    --underline-color: var(--primary-color);
+}
+
+section:not(.hero) h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--underline-width);
+    /* Use dynamic width */
+    height: 5px;
+    /* Độ dày của gạch chân */
+    background-color: var(--underline-color);
+    /* Use dynamic color */
+    border-radius: 2px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+    /* Add transition for smoothness */
+}
+
+
+section {
+    padding: 100px 0;
+    /* Tăng khoảng cách dọc giữa các section */
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--text-color);
+}
+
+nav ul {
+    list-style: none;
+    position: relative;
+    /* Cần thiết để định vị underline */
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    position: relative;
+    /* Cần thiết để định vị gạch chân */
+    padding-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Tạo gạch chân cho các mục nav */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hiển thị gạch chân khi hover hoặc khi mục đang active */
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+.header-icons a {
+    color: var(--text-color);
+    margin-left: 20px;
+    font-size: 1.2rem;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    /* Đặt chiều cao tối thiểu bằng 100% chiều cao màn hình */
+    display: flex;
+    align-items: center;
+    /* Căn giữa nội dung theo chiều dọc */
+    padding: 0;
+    position: relative;
+    /* Cần thiết để định vị canvas con */
+    /* Bỏ padding trên và dưới */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    /* Tăng khoảng cách giữa ảnh và chữ */
+    position: relative;
+    /* Đảm bảo nội dung nằm trên canvas */
+    z-index: 2;
+}
+
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Nằm dưới nội dung nhưng trên nền section */
+}
+
+.hero-image-container {
+    position: relative;
+    width: 450px;
+    /* Tăng kích thước để blob có không gian */
+    height: 450px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Thêm các thuộc tính cho hiệu ứng blob */
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: linear-gradient(45deg, var(--primary-color), #a742f5);
+    /* Tăng cường bóng đổ để tạo cảm giác "nổi" hơn */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    /* Cắt các phần tử con theo hình dạng blob */
+    transition: border-radius 1s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    /* Thêm transition cho hover */
+}
+
+/* Thêm animation cho hero-image-container */
+.hero-image-container.animated-blob {
+    animation: blob-morph 12s ease-in-out infinite;
+}
+
+/* Thêm hiệu ứng hover để khung ảnh nổi bật hơn */
+.hero-image-container:hover {
+    transform: scale(1.03) translateY(-10px);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes blob-morph {
+    0% {
+        border-radius: 49% 51% 70% 30% / 45% 46% 54% 55%;
+    }
+
+    12.5% {
+        border-radius: 65% 35% 62% 38% / 56% 52% 48% 44%;
+    }
+
+    25% {
+        border-radius: 38% 62% 35% 65% / 53% 64% 36% 47%;
+    }
+
+    37.5% {
+        border-radius: 62% 38% 41% 59% / 45% 38% 62% 55%;
+    }
+
+    50% {
+        border-radius: 41% 59% 53% 47% / 47% 51% 49% 53%;
+    }
+
+    62.5% {
+        border-radius: 44% 56% 63% 37% / 63% 42% 58% 37%;
+    }
+
+    75% {
+        border-radius: 66% 34% 55% 45% / 58% 65% 35% 42%;
+    }
+
+    87.5% {
+        border-radius: 33% 67% 39% 61% / 56% 40% 60% 44%;
+    }
+
+    100% {
+        border-radius: 49% 51% 70% 30% / 45% 46% 54% 55%;
+    }
+}
+
+.hero-image-ring {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-ring img {
+    width: 100%;
+    /* Giảm kích thước ảnh */
+    height: 100%;
+    object-fit: cover;
+    object-position: 0% 35%;
+}
+
+/* Keyframe cho viền xoay neon */
+@keyframes spin-border {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Keyframe cho viền xoay neon */
+@keyframes spin-border {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes fill-text-animation {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+/* Bỏ ::before vì đã chuyển hiệu ứng lên .hero-image-container */
+
+
+.hero-text {
+    max-width: 60%;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 10px 0;
+    color: #003140;
+}
+
+/* Làm nhạt màu chữ "Hi I'm" */
+.hero-text .intro-text {
+    color: #666;
+    /* Một màu xám nhạt hơn */
+}
+
+/* CSS cho hiệu ứng gõ chữ */
+#typing-text.typing::after {
+    content: '|';
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    /* color: var(--primary-color); */
+    margin-bottom: 20px;
+    /* 1. Tạo viền chữ */
+    -webkit-text-stroke: 2px var(--primary-color);
+    /* 2. Tạo nền gradient và clip vào văn bản */
+    background-image: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Làm cho màu chữ gốc trong suốt để nền hiển thị */
+    /* 3. Áp dụng animation */
+    animation: fill-text-animation 4s linear infinite;
+}
+
+.hero-text .description {
+    cursor: pointer;
+    /* Đổi con trỏ chuột để báo hiệu có thể tương tác */
+}
+
+.hero-text .description span {
+    display: inline-block;
+    /* Cần thiết để áp dụng transform */
+    transition: transform 0.3s cubic-bezier(.2, .6, .8, 1.5), color 0.3s ease;
+    /* Hiệu ứng chuyển động mượt */
+}
+
+.hero-text .description span:hover {
+    transform: translateY(-8px);
+    /* Di chuyển chữ lên trên khi hover */
+    color: var(--primary-color);
+    /* Đổi màu chữ khi hover */
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    /* Tăng khoảng cách trên cho các nút */
+}
+
+.btn {
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--secondary-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.btn.btn-secondary {
+    /* Hiệu ứng Liquid Glass */
+    background: rgba(255, 255, 255, 0.589);
+    /* Nền trắng mờ */
+    backdrop-filter: blur(10px);
+    /* Hiệu ứng làm mờ hậu cảnh */
+    -webkit-backdrop-filter: blur(10px);
+    /* Hỗ trợ trình duyệt Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Viền kính mờ */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng nhẹ để tạo chiều sâu */
+    color: #333;
+    margin-left: 15px;
+}
+
+.social-icons {
+    margin-top: 40px;
+    /* Tăng khoảng cách trên cho các icon */
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    /* Chuyển thành khối để tạo nền */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    position: relative;
+    /* Cần thiết cho hiệu ứng nhấn xuống */
+    background-color: #f0f0f0;
+    /* Tạo hiệu ứng khối 3D xiên về dưới-trái */
+    box-shadow: -4px 4px 0 #dcdcdc, -5px 5px 10px rgba(0, 0, 0, 0.15);
+    /* Thêm hiệu ứng chuyển đổi mượt mà */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Hiệu ứng khi hover */
+.social-icons a:hover {
+    transform: translate(2px, -2px);
+    /* Di chuyển lên-phải khi hover */
+    box-shadow: -6px 6px 0 #dcdcdc, -7px 7px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hiệu ứng khi nhấn vào */
+.social-icons a:active {
+    transform: translate(-4px, 4px);
+    /* Di chuyển về vị trí của bóng để mô phỏng việc nhấn chìm */
+    box-shadow: 0 0 0 #dcdcdc, 0 0 5px rgba(0, 0, 0, 0.15);
+    /* Loại bỏ bóng khối */
+}
+
+/* --- TÙY CHỈNH MÀU SẮC CHO CÁC ICON MẠNG XÃ HỘI KHI HOVER --- */
+
+/* Instagram */
+.social-icons a:has(.fa-instagram):hover {
+    transform: translate(2px, -2px);
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #fff;
+    box-shadow: -6px 6px 0 #a11161, -7px 7px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icons a:has(.fa-instagram):active {
+    transform: translate(-4px, 4px);
+    box-shadow: 0 0 0 #a11161;
+}
+
+/* GitHub */
+.social-icons a:has(.fa-github):hover {
+    transform: translate(2px, -2px);
+    background-color: #24292e;
+    color: #fff;
+    box-shadow: -6px 6px 0 #000, -7px 7px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icons a:has(.fa-github):active {
+    box-shadow: 0 1px 0 #000;
+}
+
+/* Facebook */
+.social-icons a:has(.fa-facebook-f):hover {
+    transform: translate(2px, -2px);
+    background-color: #1877F2;
+    color: #fff;
+    box-shadow: -6px 6px 0 #0c5fca, -7px 7px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icons a:has(.fa-facebook-f):active {
+    transform: translate(-4px, 4px);
+    box-shadow: 0 0 0 #0c5fca;
+}
+
+/* LinkedIn */
+.social-icons a:has(.fa-linkedin-in):hover {
+    transform: translate(2px, -2px);
+    background-color: #0A66C2;
+    color: #fff;
+    box-shadow: -6px 6px 0 #084a8d, -7px 7px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icons a:has(.fa-linkedin-in):active {
+    transform: translate(-4px, 4px);
+    box-shadow: 0 0 0 #084a8d;
+}
+
+/* About Me Section */
+.about-me {
+    background-color: var(--dark-blue-bg);
+    color: #fff;
+}
+
+.about-container {
+    background-color: #fff;
+    color: var(--text-color);
+    border-radius: 15px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    /* Tăng khoảng cách giữa nội dung và ảnh */
+}
+
+.about-content {
+    flex-basis: 55%;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    /* Tăng khoảng cách dưới tiêu đề */
+    font-weight: 900;
+    text-align: center;
+    /* Căn giữa tiêu đề */
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Cố định chiều cao cho đoạn văn about me để tránh nhảy layout */
+#about-me-text {
+    height: 160px;
+    /* Đã cố định chiều cao để tránh nhảy layout */
+    /* Lưu ý: Nếu nội dung văn bản dài hơn 160px, nó có thể bị cắt hoặc tràn ra ngoài. */
+    /* Bạn có thể điều chỉnh giá trị này nếu cần */
+}
+
+/* Tô đậm các từ quan trọng trong phần About Me */
+#about-me-text strong {
+    color: var(--primary-color);
+    /* Đổi màu chữ thành màu xanh chủ đạo */
+    font-weight: 900;
+    /* Tăng độ đậm để nổi bật hơn */
+}
+
+
+/* Hiệu ứng gõ chữ cho About Me */
+.typing-effect {
+    position: relative;
+    min-height: 1em;
+    /* Đảm bảo có không gian cho cursor khi text rỗng */
+}
+
+.typing-effect.typing::after {
+    content: '|';
+    /* Ký tự con trỏ */
+    display: inline-block;
+    /* Đảm bảo nó nằm trên cùng một dòng với văn bản */
+    vertical-align: baseline;
+    /* Căn chỉnh con trỏ với dòng chữ */
+    margin-left: 2px;
+    /* Khoảng cách nhỏ giữa chữ và con trỏ */
+    animation: blink 0.7s infinite;
+}
+
+
+.hobby-section {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Nền tối hơn một chút để nổi bật */
+}
+
+.hobby-section h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 20px 0;
+    letter-spacing: 5px;
+    /* Tăng khoảng cách giữa các chữ cái */
+}
+
+/* --- CSS CHO HIỆU ỨNG CHỮ CHẠY (SCROLLER) --- */
+.scroller {
+    max-width: 600px;
+    margin: 0 auto 10px;
+    /* Thêm khoảng cách giữa 2 hàng */
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding-block: 1rem;
+    animation: scroll 20s linear infinite;
+}
+
+.scroller[data-direction="right"] .scroller__inner {
+    animation-direction: reverse;
+}
+
+.scroller:hover .scroller__inner {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
+
+.tag-list {
+    list-style: none;
+}
+
+.tag-list li {
+    display: flex;
+    /* Sử dụng flexbox để căn chỉnh */
+    align-items: center;
+    /* Căn giữa icon và chữ theo chiều dọc */
+    gap: 0.5rem;
+    /* Tạo khoảng cách giữa icon và chữ */
+    padding: 0.5rem 1rem;
+    background: #fff;
+    color: var(--text-color);
+    border-radius: 5px;
+    white-space: nowrap;
+    /* Đảm bảo nội dung không bị xuống dòng */
+}
+
+.download-cv {
+    background-color: var(--primary-color);
+    /* Đổi màu nền thành màu xanh chủ đạo */
+    color: #fff;
+    /* Đổi màu chữ thành trắng */
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    /* Thay đổi margin để căn giữa */
+}
+
+/* Style cho nút "View Certificate" */
+.certificate-btn {
+    background-color: rgba(0, 140, 186, 0.1);
+    /* Màu nền nhạt hơn từ primary-color */
+    color: var(--primary-color);
+    /* Màu chữ là primary-color */
+    border: 1px solid var(--primary-color);
+    /* Thêm viền */
+    padding: 8px 18px;
+    /* Giảm padding để nút nhỏ hơn */
+    font-size: 0.9rem;
+    /* Giảm kích thước chữ */
+    width: fit-content;
+    /* Chiều rộng vừa với nội dung */
+    margin: 20px auto 0;
+    /* Căn giữa và tạo khoảng cách trên */
+}
+
+/* --- HIỆU ỨNG CHO NÚT DOWNLOAD CV --- */
+.download-cv {
+    overflow: hidden;
+    /* Cần thiết để hiệu ứng hoạt động mượt mà */
+}
+
+.download-cv i {
+    display: inline-block;
+    /* Cần thiết để áp dụng transform */
+    transition: transform 0.3s ease;
+}
+
+/* Khi hover vào nút, áp dụng animation cho icon */
+.download-cv:hover i {
+    animation: download-icon-bounce 1s ease-in-out infinite;
+}
+
+@keyframes download-icon-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+    /* Di chuyển icon xuống 5px */
+}
+
+
+.about-image {
+    flex-basis: 40%;
+    border-radius: 15px;
+    /* Bo góc cho container để cắt viền */
+    overflow: hidden;
+    /* Ẩn phần thừa của viền xoay */
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    display: block;
+    /* Loại bỏ khoảng trắng thừa dưới ảnh */
+}
+
+/* Skills Section */
+.skills-section {
+    background-color: var(--light-gray-bg);
+}
+
+.skills-section h2,
+.projects-section h2,
+.education-section h2,
+.contact-info h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    /* Tăng khoảng cách dưới các tiêu đề section */
+    font-weight: 900;
+}
+
+/* Hiệu ứng viền chữ khi hover cho H2 */
+h2 span {
+    display: inline-block;
+    /* Cần thiết để áp dụng transition và transform nếu muốn */
+    transition: all 0.2s ease-in-out;
+}
+
+h2 span:hover {
+    /* Tạo viền chữ */
+    -webkit-text-stroke: 2px var(--primary-color);
+    /* Làm màu chữ trong suốt để chỉ thấy viền */
+    color: transparent;
+    /* Tùy chọn: Phóng to chữ một chút để nổi bật hơn */
+    transform: scale(1.1);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    /* Tăng khoảng cách giữa các skill box */
+}
+
+.skill-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skill-box h3 {
+    margin-bottom: 25px;
+    /* Tăng khoảng cách dưới tiêu đề skill box */
+}
+
+/* Thêm hiệu ứng hover cho h3 trong skill-box, trừ các box đặc biệt */
+.skill-box:not(.general-skills):not(.skill-level) h3 {
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    /* Căn giữa tiêu đề */
+}
+
+.skill-box:not(.general-skills):not(.skill-level) h3:hover {
+    transform: scale(1.1);
+    /* Phóng to 110% */
+    color: var(--primary-color);
+    /* Đổi sang màu xanh chính */
+}
+
+
+
+.skill {
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Cần thiết để định vị text phần trăm */
+}
+
+.progress {
+    background-color: #333;
+    /* Đổi thành màu đen đậm */
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    /* Cần thiết để định vị số phần trăm bên trong */
+}
+
+.progress-percent {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    /* Đổi màu chữ thành đen đậm */
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.skill-box.general-skills {
+    background-color: transparent;
+    /* Xóa nền trắng của box */
+    box-shadow: none;
+    /* Xóa đổ bóng */
+}
+
+.skill-box.skill-level {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.general-skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress {
+    position: relative;
+    height: 300px;
+    /* Tăng kích thước vòng tròn lớn hơn */
+    width: 300px;
+    /* Tăng kích thước vòng tròn lớn hơn */
+    border-radius: 50%;
+    /* Sử dụng 50% để tạo hình tròn hoàn hảo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tạo vòng tròn tiến trình nổi bằng ::after */
+.circular-progress::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Nền conic-gradient sẽ được cập nhật bằng JS */
+    background: conic-gradient(var(--primary-color) 0deg, transparent 0deg);
+    /* Tạo hiệu ứng đổ bóng để "nâng" vòng tròn lên */
+    filter: drop-shadow(0 5px 10px rgba(0, 140, 186, 0.4));
+    transition: background 1.5s ease;
+    /* Đặt z-index để nó nằm trên nền xám nhưng dưới vòng tròn trắng ở giữa */
+    z-index: 1;
+}
+
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 210px;
+    /* Tăng kích thước tương ứng để giữ độ dày viền */
+    width: 210px;
+    /* Tăng kích thước tương ứng để giữ độ dày viền */
+    border-radius: 50%;
+    /* Đảm bảo nền bên trong cũng là hình tròn hoàn hảo */
+    background-color: var(--light-gray-bg);
+    /* Đặt z-index cao nhất để tạo lỗ ở giữa */
+    z-index: 2;
+}
+
+.value-container {
+    position: relative;
+    z-index: 3;
+    /* Đảm bảo số phần trăm luôn ở trên cùng */
+}
+
+.skill-box.skill-level h3 {
+    text-align: center;
+}
+
+/* --- 3D PYRAMID CSS --- */
+.pyramid-container-3d {
+    position: relative;
+    width: 100%;
+    /* Tăng chiều cao container để chứa kim tự tháp lớn hơn */
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    margin-top: 40px;
+    /* Tăng khoảng cách trên */
+}
+
+.pyramid-3d {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-30deg);
+    width: 200px;
+    height: 200px;
+    animation: spin-pyramid 30s linear infinite;
+    /* Thêm animation xoay tự động */
+}
+
+@keyframes spin-pyramid {
+    from {
+        transform: rotateX(-20deg) rotateY(-30deg);
+    }
+
+    to {
+        transform: rotateX(-20deg) rotateY(330deg);
+        /* Xoay đủ 360 độ */
+    }
+}
+
+/* Thêm hiệu ứng xoay nhẹ khi hover */
+.pyramid-container-3d:hover .pyramid-3d {
+    animation-play-state: paused;
+    /* Tạm dừng animation khi hover */
+    transform: rotateX(-15deg) rotateY(-45deg) scale(1.05);
+    /* Áp dụng hiệu ứng hover */
+}
+
+.cuboid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.8s ease;
+}
+
+.cuboid .face {
+    position: absolute;
+    /* Thêm một lớp nền gradient để tạo hiệu ứng nhiễu (noise) */
+    background-image: linear-gradient(rgba(180, 180, 180, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 180, 180, 0.1) 1px, transparent 1px);
+    background-color: rgba(128, 0, 128, 0.6);
+    /* Giảm độ trong suốt của màu nền một chút */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    /* Tăng độ mờ để "mờ hơn" */
+}
+
+/* --- HIỆU ỨNG BUILD-UP CHO KIM TỰ THÁP --- */
+/* Trạng thái ban đầu trước khi animation */
+.pyramid-3d .cuboid {
+    opacity: 0;
+    transform: translateY(-80px);
+}
+
+/* Trạng thái cuối cùng khi được kích hoạt */
+.pyramid-3d.animate-build .cuboid {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bottom Cuboid */
+.cuboid.bottom {
+    width: 200px;
+    height: 66px;
+    top: 134px;
+    left: 0;
+}
+
+.pyramid-3d.animate-build .cuboid.bottom {
+    transition-delay: 0s;
+    /* Tầng dưới cùng xuất hiện đầu tiên */
+}
+
+
+.cuboid.bottom .front {
+    width: 200px;
+    height: 66px;
+    transform: translateZ(100px);
+}
+
+.cuboid.bottom .back {
+    width: 200px;
+    height: 66px;
+    transform: translateZ(-100px) rotateY(180deg);
+}
+
+.cuboid.bottom .right {
+    width: 200px;
+    height: 66px;
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.cuboid.bottom .left {
+    width: 200px;
+    height: 66px;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cuboid.bottom .top {
+    width: 200px;
+    height: 200px;
+    transform: rotateX(90deg) translateZ(33px);
+}
+
+.cuboid.bottom .bottom {
+    width: 200px;
+    height: 200px;
+    transform: rotateX(-90deg) translateZ(33px);
+    /* Ghi đè background để tạo hiệu ứng mờ dần về các cạnh */
+    background-image:
+        /* Giữ lại hiệu ứng nhiễu (noise) */
+        linear-gradient(rgba(180, 180, 180, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 180, 180, 0.1) 1px, transparent 1px),
+        /* Thêm hiệu ứng mờ dần từ tâm ra cạnh */
+        radial-gradient(ellipse at center, rgba(128, 0, 128, 0.6) 20%, transparent 75%);
+    background-color: transparent;
+    /* Bỏ màu nền cũ để gradient hoạt động */
+}
+
+/* Middle Cuboid */
+.cuboid.middle {
+    width: 133px;
+    height: 66px;
+    top: 67px;
+    left: 33.5px;
+}
+
+.pyramid-3d.animate-build .cuboid.middle {
+    transition-delay: 0.2s;
+    /* Tầng giữa xuất hiện sau 0.2s */
+}
+
+
+.cuboid.middle .front {
+    width: 133px;
+    height: 66px;
+    transform: translateZ(66.5px);
+}
+
+.cuboid.middle .back {
+    width: 133px;
+    height: 66px;
+    transform: translateZ(-66.5px) rotateY(180deg);
+}
+
+.cuboid.middle .right {
+    width: 133px;
+    height: 66px;
+    transform: rotateY(90deg) translateZ(66.5px);
+}
+
+.cuboid.middle .left {
+    width: 133px;
+    height: 66px;
+    transform: rotateY(-90deg) translateZ(66.5px);
+}
+
+.cuboid.middle .top {
+    width: 133px;
+    height: 133px;
+    transform: rotateX(90deg) translateZ(33px);
+}
+
+/* Top Cuboid */
+.cuboid.top {
+    width: 67px;
+    height: 67px;
+    top: 0;
+    left: 66.5px;
+}
+
+.pyramid-3d.animate-build .cuboid.top {
+    transition-delay: 0.4s;
+    /* Tầng trên cùng xuất hiện cuối cùng */
+}
+
+
+.cuboid.top .front {
+    width: 67px;
+    height: 67px;
+    transform: translateZ(33.5px);
+}
+
+.cuboid.top .back {
+    width: 67px;
+    height: 67px;
+    transform: translateZ(-33.5px) rotateY(180deg);
+}
+
+.cuboid.top .right {
+    width: 67px;
+    height: 67px;
+    transform: rotateY(90deg) translateZ(33.5px);
+}
+
+.cuboid.top .left {
+    width: 67px;
+    height: 67px;
+    transform: rotateY(-90deg) translateZ(33.5px);
+}
+
+.cuboid.top .top {
+    width: 67px;
+    height: 67px;
+    transform: rotateX(90deg) translateZ(33.5px);
+}
+
+/* --- HỘP GHI CHÚ CHO KIM TỰ THÁP --- */
+.cuboid-label {
+    position: absolute;
+    background-color: #fff;
+    color: var(--text-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    /* Đặt bên phải của kim tự tháp */
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    /* Thêm hiệu ứng chuyển đổi mượt mà */
+    z-index: 10;
+}
+
+/* Tạo mũi tên chỉ vào cuboid */
+.cuboid-label::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    /* Đặt mũi tên ở cạnh trái của hộp ghi chú */
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-right-color: #fff;
+    /* Mũi tên chỉ sang trái */
+}
+
+/* Định vị cố định cho các nhãn */
+.cuboid-label.label-top {
+    top: 60px;
+    /* Vị trí của nhãn trên cùng */
+    right: 0;
+}
+
+.cuboid-label.label-middle {
+    top: 127px;
+    /* Vị trí của nhãn ở giữa */
+    left: 0;
+    /* Di chuyển sang bên trái */
+}
+
+/* Điều chỉnh mũi tên cho nhãn bên trái */
+.cuboid-label.label-middle::after {
+    left: auto;
+    /* Hủy bỏ thuộc tính left chung */
+    right: -15px;
+    /* Đặt mũi tên ở cạnh phải của hộp ghi chú */
+    border-right-color: transparent;
+    /* Bỏ màu viền phải */
+    border-left-color: #fff;
+    /* Đặt màu cho viền trái để mũi tên chỉ sang phải */
+}
+
+.cuboid-label.label-bottom {
+    top: 193px;
+    /* Vị trí của nhãn dưới cùng */
+    right: 0;
+}
+
+/* --- HIỆU ỨNG TƯƠNG TÁC CHO KIM TỰ THÁP --- */
+/* 1, 2, 4 & 5. Analytical, Communication, Curiosity, Teamwork: Tầng trên di chuyển vào trong tầng giữa */
+.pyramid-container-3d.show-analytical-skill .cuboid.top,
+.pyramid-container-3d.show-communication-skill .cuboid.top,
+.pyramid-container-3d.show-curiosity .cuboid.top,
+.pyramid-container-3d.show-teamwork .cuboid.top {
+    transform: translateY(67px);
+    /* Chỉ di chuyển xuống, không thu nhỏ */
+}
+
+/* Ẩn nhãn "Professional" cho các hiệu ứng trên */
+.pyramid-container-3d.show-analytical-skill .cuboid-label.label-top,
+.pyramid-container-3d.show-communication-skill .cuboid-label.label-top,
+.pyramid-container-3d.show-curiosity .cuboid-label.label-top,
+.pyramid-container-3d.show-teamwork .cuboid-label.label-top {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 3. Business Acumen: Tầng trên di chuyển vào tầng giữa, tầng giữa di chuyển vào tầng cuối */
+.pyramid-container-3d.show-business-acumen .cuboid.top {
+    transform: translateY(134px);
+    /* Tầng trên di chuyển xuống vị trí tầng cuối */
+}
+
+.pyramid-container-3d.show-business-acumen .cuboid.middle {
+    transform: translateY(67px);
+    /* Tầng giữa di chuyển xuống vị trí tầng cuối */
+}
+
+.pyramid-container-3d.show-business-acumen .cuboid-label.label-top {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ẩn nhãn "Improve" cho Business Acumen */
+.pyramid-container-3d.show-business-acumen .cuboid-label.label-middle {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- HIỆU ỨNG NHẢY KHI HOVER VÀO HỘP SOFT SKILLS --- */
+@keyframes jump-and-settle {
+    0% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+
+    /* Nhảy lên */
+    100% {
+        transform: translateY(15px);
+    }
+
+    /* Hạ xuống gần hơn */
+}
+
+/* Áp dụng animation cho tầng giữa */
+.pyramid-container-3d.jump-animation .cuboid.middle {
+    animation: jump-and-settle 0.6s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+    animation-delay: 0.1s;
+    /* Trễ một chút để tạo hiệu ứng nối tiếp */
+}
+
+/* Áp dụng animation cho tầng trên cùng */
+.pyramid-container-3d.jump-animation .cuboid.top {
+    animation: jump-and-settle 0.6s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+
+/* Khi animation kết thúc, tầng trên sẽ hạ xuống gần tầng giữa hơn */
+.pyramid-container-3d.jump-animation .cuboid.top {
+    /* Dịch chuyển cuối cùng của tầng trên = 15px (từ animation) */
+    /* Dịch chuyển cuối cùng của tầng giữa = 15px (từ animation) */
+    /* => Khoảng cách giữa chúng không đổi, ta cần dịch chuyển tầng trên thêm */
+    animation: jump-and-settle 0.6s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+}
+
+/* 5. Teamwork: Hiệu ứng đã được gộp vào nhóm trên */
+
+
+/* Text Levels for Pyramid */
+/* Xóa CSS không cần thiết */
+
+.soft-skills-list {
+    list-style: none;
+}
+
+.soft-skills-list li {
+    background-color: #f0f0f0;
+    padding: 12px 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 500;
+    border: 2px solid transparent;
+    /* Thêm viền trong suốt ban đầu */
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    /* Thêm transition cho viền */
+}
+
+.soft-skills-list li:hover {
+    color: var(--primary-color);
+    /* Đổi màu chữ thành màu chính */
+    transform: translateY(-3px);
+    /* Nâng nhẹ thẻ lên */
+    border-color: var(--primary-color);
+    /* Đổi màu viền khi hover */
+}
+
+/* Experience Section */
+.experience-section {
+    background-color: var(--dark-blue-bg);
+    color: #fff;
+}
+
+.experience-section h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    /* Thêm để đồng bộ kích thước với các tiêu đề khác */
+    text-align: center;
+    margin-bottom: 60px;
+    /* Tạo khoảng cách với timeline bên dưới */
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Giữ nguyên để không có cuộn dọc */
+    padding: 20px 0;
+    /* Giảm padding trên và dưới */
+    /* Thêm khoảng đệm trên dưới cho nội dung */
+    /* Tùy chỉnh thanh cuộn cho đẹp hơn */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #e0e0e0;
+}
+
+/* Tùy chỉnh thanh cuộn cho trình duyệt Webkit (Chrome, Safari) */
+.timeline::-webkit-scrollbar {
+    height: 8px;
+}
+
+.timeline::-webkit-scrollbar-track {
+    background: #1a3b5c;
+}
+
+.timeline::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    /* Chiều dày của đường kẻ ngang */
+    width: 100%;
+    /* Chiều rộng bằng với các item cộng lại */
+    min-width: 100%;
+    /* Đảm bảo đường kẻ luôn đủ dài */
+    background-color: #fff;
+    /* Màu đường kẻ */
+    top: 48px;
+    /* Di chuyển xuống: 50px (vị trí top mới của dot) - 2px (nửa chiều cao của line) */
+    left: 0;
+    z-index: 0;
+    z-index: 1;
+    /* Đặt z-index thấp hơn dấu chấm */
+}
+
+.timeline-item {
+    position: relative;
+    flex: 0 0 450px;
+    /* Tăng chiều rộng cơ bản của mỗi item để tạo không gian cuộn */
+    padding: 20px;
+    z-index: 3;
+    /* Giữ z-index cao để nội dung luôn ở trên cùng */
+}
+
+.timeline-item::before {
+    content: '';
+    /* Đây sẽ là dấu chấm tròn */
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Căn giữa dấu chấm tuyệt đối */
+    z-index: 2;
+    /* Nâng z-index để dấu chấm nằm trên đường kẻ */
+}
+
+.timeline-date {
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    /* Đổi màu chữ thành trắng để nổi bật trên nền */
+    position: absolute;
+    top: -20px;
+    /* Di chuyển hộp ghi chú xuống tương ứng */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    /* Sử dụng màu chính làm nền */
+    padding: 5px 15px;
+    /* Tăng padding để tạo hộp */
+    border-radius: 5px;
+    /* Bo góc cho hộp */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    /* Thêm bóng đổ nhẹ */
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: #fff;
+    color: var(--text-color);
+    position: relative;
+    border-radius: 6px;
+    margin-top: 45px;
+    /* Tăng khoảng cách từ đường kẻ đến nội dung */
+    width: 100%;
+}
+
+.timeline-content.right ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.timeline-content.right li {
+    margin-bottom: 10px;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    position: relative;
+    background-color: transparent;
+    /* Nền trong suốt vì các mặt sẽ có nền riêng */
+    height: 250px;
+    /* Đặt chiều cao cố định cho thẻ */
+    perspective: 1000px;
+    /* Tạo không gian 3D */
+    border-radius: 10px;
+    /* Giữ bo góc */
+}
+
+.project-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.project-card:hover .project-card-inner {
+    transform: rotateY(180deg);
+    /* Xoay thẻ khi hover */
+}
+
+.project-card-front,
+.project-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Đảm bảo ảnh không tràn ra ngoài */
+}
+
+.project-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Đảm bảo ảnh lấp đầy thẻ */
+    display: block;
+}
+
+.project-card-back {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: rotateY(180deg);
+    /* Xoay mặt sau 180 độ ban đầu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-card-back h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.project-card-back p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Education Section */
+.education-section {
+    background-color: var(--dark-blue-bg);
+    color: #fff;
+}
+
+.education-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.education-contact-titles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    /* Giữ khoảng cách với nội dung bên dưới */
+}
+
+.education-contact-titles h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.education-card {
+    background-color: transparent;
+    /* Nền trong suốt vì các mặt sẽ có nền riêng */
+    width: 100%;
+    height: 250px;
+    /* Đặt chiều cao cố định cho thẻ */
+    perspective: 1000px;
+    /* Tạo không gian 3D */
+}
+
+.education-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.education-card:hover .education-card-inner {
+    transform: rotateY(180deg);
+    /* Xoay thẻ khi hover */
+}
+
+.education-card-front,
+.education-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    color: var(--text-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.education-card-front {
+    background-color: #f0f0f0;
+}
+
+.education-card-front img {
+    max-width: 100%;
+    /* Cho phép logo chiếm toàn bộ chiều rộng có sẵn */
+}
+
+.education-card-back {
+    background-color: #f0f0f0;
+    flex-direction: row;
+    /* Sắp xếp ảnh và chữ theo hàng ngang */
+    gap: 20px;
+    /* Khoảng cách giữa ảnh và chữ */
+    transform: rotateY(180deg);
+    /* Xoay mặt sau 180 độ ban đầu */
+}
+
+.student-avatar {
+    width: 120px;
+    /* Tăng chiều rộng để tạo hình elip */
+    height: 150px;
+    /* Giảm chiều cao để tạo hình elip */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--secondary-color);
+    flex-shrink: 0;
+    /* Ngăn ảnh bị co lại */
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Căn chữ về bên trái */
+    text-align: left;
+    /* Căn lề trái cho văn bản */
+}
+
+.education-details h3 {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    /* Giảm kích thước chữ để vừa vặn trên 2 dòng */
+}
+
+.education-details p {
+    margin-bottom: 5px;
+}
+
+/* Contact Section */
+.contact-container {
+    max-width: 800px;
+    /* Giới hạn chiều rộng của form */
+    margin: 0 auto;
+    /* Căn giữa form */
+}
+
+.contact-info,
+.contact-form {
+    flex: 1;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, color 0.3s ease;
+    background-color: #f0f0f0;
+    /* Màu nền mặc định */
+    color: var(--text-color);
+    /* Màu chữ mặc định */
+    max-width: 250px;
+    /* Giới hạn chiều rộng của thẻ */
+    margin: 0 auto 15px;
+    /* Căn giữa thẻ và giữ khoảng cách dưới */
+}
+
+.social-link:hover {
+    color: #fff;
+    /* Kết hợp di chuyển và xoay để tạo hiệu ứng nghiêng */
+    transform: translateY(-8px) rotate(3deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Màu đặc trưng cho từng thẻ khi hover */
+.social-link:has(.fa-instagram):hover {
+    /* Sử dụng gradient đặc trưng của Instagram */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-link:has(.fa-github):hover {
+    /* Màu đen đặc trưng của Github */
+    background-color: #24292e;
+}
+
+.social-link:has(.fa-facebook-f):hover {
+    /* Màu xanh dương đặc trưng của Facebook */
+    background-color: #1877F2;
+}
+
+.social-link:has(.fa-linkedin-in):hover {
+    /* Màu xanh dương đặc trưng của LinkedIn */
+    background-color: #0A66C2;
+}
+
+.social-link i {
+    font-size: 1.8rem;
+    width: 50px;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group-row input {
+    width: 50%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Điều chỉnh nút submit trong form liên hệ */
+.contact-form button.btn {
+    width: fit-content;
+    /* Chiều rộng vừa với nội dung */
+    align-self: flex-end;
+    /* Căn chỉnh nút về phía cuối (bên phải) */
+    margin-top: -10px;
+    /* Giảm khoảng cách trên một chút */
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-blue-bg);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Nút Lên Đầu Trang */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ================================== */
+/* CSS CHO HIỆU ỨNG CHUYỂN ĐỘNG */
+/* ================================== */
+nav ul li a.active {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.animate {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate.fade-in {
+    opacity: 0;
+}
+
+.animate.slide-in-up {
+    transform: translateY(50px);
+}
+
+.animate.slide-in-down {
+    transform: translateY(-50px);
+}
+
+.animate.slide-in-left {
+    transform: translateX(-50px);
+}
+
+.animate.slide-in-right {
+    transform: translateX(50px);
+}
+
+.animate.zoom-in {
+    transform: scale(0.9);
+}
+
+.animate.is-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+}
+
+.progress {
+    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Giảm thời gian chuyển động của thanh */
+}
+
+.circular-progress {
+    /* Nền xám cố định cho biểu đồ */
+    background: #e0e0e0;
+}
+
+.value-container {
+    font-size: 3.5rem;
+    /* Tăng kích thước số phần trăm */
+    font-weight: 700;
+}
+
+.project-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.skills-grid .skill-box.animate.is-visible:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.skills-grid .skill-box.animate.is-visible:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.skills-grid .skill-box.animate.is-visible:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.projects-grid .project-card.animate.is-visible:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.projects-grid .project-card.animate.is-visible:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.projects-grid .project-card.animate.is-visible:nth-child(4) {
+    transition-delay: 0.3s;
+}
+
+.timeline-item.animate.is-visible {
+    transition-delay: 0.2s;
+}
+
+/* --- PRELOADER STYLES --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.75s ease, visibility 0.75s ease;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-text {
+    /* Ưu tiên Snell Roundhand, nếu không có sẽ dùng Dancing Script */
+    font-family: 'Snell Roundhand', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- TẠO HỘP GHI CHÚ CHO TIÊU ĐỀ KỸ NĂNG CHUNG --- */
+.skill-box.general-skills h3 {
+    position: relative;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    /* Tăng khoảng cách để tạo không gian cho mũi tên */
+    z-index: 5;
+    /* Đảm bảo nó nằm trên các phần tử khác nếu cần */
+}
+
+/* Tạo mũi tên chỉ xuống */
+.skill-box.general-skills h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    /* Đặt mũi tên ngay dưới hộp */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid var(--secondary-color);
+    /* Màu của mũi tên giống màu nền hộp */
+}

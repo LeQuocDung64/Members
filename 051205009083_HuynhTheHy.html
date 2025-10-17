@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THEHY - Data Science</title>
+    <link rel="stylesheet" href="./css/051205009083_HuynhTheHy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-text">Hello everyone, I'm Huynh The Hy</div>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="#home" class="logo">THEHY</a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="./image/HuynhTheHy_DataScience_CV.pdf" download="HuynhTheHy_DataScience_CV.pdf"><i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <canvas id="particle-canvas"></canvas>
+            <div class="container hero-container">
+                <div class="hero-image-container animate slide-in-left">
+                    <div class="hero-image-ring">
+                        <img src="./image/avata4.png" alt="Huynh The Hy">
+                    </div>
+                </div>
+                <div class="hero-text animate slide-in-right">
+                    <p>WELCOME TO MY WORD</p>
+                    <h1><span class="intro-text">Hi I'm </span><span id="typing-text"></span></h1>
+                    <h2>DATA SCIENCE</h2>
+                    <p class="description">
+                        As a Data Science student, I am developing my skills in data analysis and machine learning to pursue a career as a Data Analyst or Data Scientist.<br>
+                        My goal is to use data-driven insights to support business decision-making.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View projects</a>
+                        <a href="#contact" class="btn btn-secondary">Contract <i class="fas fa-phone"></i></a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/hy-huynh-the-4a2174332/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/h_theeshy.1401/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/Thehy-IT" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/H.TheHy" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-me">
+            <div class="container about-container animate fade-in">
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <p id="about-me-text" class="typing-effect" style="margin-bottom: 50px;">
+                        I am Huynh The Hy, a third-year <strong>Data Science student</strong> at the University of Transport and Communications in Ho Chi Minh City with a <strong>3.5/4.0 GPA</strong>. I am passionate about <strong>uncovering stories within data</strong> and applying <strong>AI/Machine Learning technologies</strong> to <strong>solve real-world problems</strong>.<br>My goal is to continuously hone my skills and gain practical experience to become a <strong>Data Analyst</strong> who can contribute to <strong>data-driven business breakthroughs</strong>.
+                    </p>
+                    <div class="hobby-section">
+                        <!-- Row 1: Scrolls from left to right -->
+                        <div class="scroller" data-direction="right" data-speed="slow">
+                            <ul class="tag-list scroller__inner">
+                                <li><i class="fa-solid fa-plane-departure"></i>Traveling</li>
+                                <li><i class="fa-solid fa-robot"></i>Exploring new AI & Machine Learning technologies</li>
+                                <li><i class="fa-solid fa-laptop-code"></i>Taking online courses (Coursera, DataCamp, etc.)</li>
+                            </ul>
+                        </div>
+                        <h3>Hobby</h3>
+                        <!-- Row 2: Scrolls from right to left -->
+                        <div class="scroller" data-speed="slow">
+                            <ul class="tag-list scroller__inner">
+                                <li><i class="fa-solid fa-hand-holding-heart"></i>Volunteering</li>
+                                <li><i class="fa-solid fa-users"></i>Joining extracurricular activities</li>
+                                <li><i class="fa-solid fa-headphones"></i>Listening to music, watching movies</li>
+                                <li><i class="fa-solid fa-table-tennis-paddle-ball"></i>Playing table tennis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="./image/HuynhTheHy_DataScience_CV.pdf" download="HuynhTheHy_DataScience_CV.pdf" class="btn download-cv">Download CV <i class="fas fa-download"></i></a>
+                </div>
+                <div class="about-image">
+                    <img src="/image/1.jpg" alt="About me image">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="animate fade-in">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-box animate slide-in-up">
+                        <h3>Professional Skills</h3>
+                        <div class="skill">
+                            <p>Python</p>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="90%" style="width: 0;">
+                                    <span class="progress-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <p>R</p>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="85%" style="width: 0;">
+                                    <span class="progress-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <p>Data Visualization</p>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="95%" style="width: 0;">
+                                    <span class="progress-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <p>SQL</p>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="80%" style="width: 0;">
+                                    <span class="progress-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <p>Cloud Platforms</p>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="88%" style="width: 0;">
+                                    <span class="progress-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <p>Big Data</p>
+                            <div class="progress-bar">
+                                <div class="progress" data-width="75%" style="width: 0;">
+                                    <span class="progress-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/ad9fb968-6be0-4569-96ba-007a7ba78b96" target="_blank" class="btn certificate-btn">View Certificate</a>
+                    </div>
+                    <div class="skill-box general-skills animate slide-in-up">
+                        <h3>General professional skills</h3>
+                        <div class="circular-progress">
+                            <div class="value-container">80%</div>
+                        </div>
+                    </div>
+                    <div class="skill-box skill-level animate slide-in-up">
+                        <h3>Skill Level</h3>
+                        <div class="pyramid-container-3d">
+                            <div class="pyramid-3d">
+                                <div class="cuboid bottom">
+                                    <div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div>
+                                </div>
+                                <div class="cuboid middle">
+                                    <div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div>
+                                </div>
+                                <div class="cuboid top">
+                                    <div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div>
+                                </div>
+                            </div>
+                            <!-- Move the labels outside so they don't rotate -->
+                            <div class="cuboid-label label-top">Professional</div>
+                            <div class="cuboid-label label-middle">Improve</div>
+                            <div class="cuboid-label label-bottom">Basic</div>
+                        </div>
+                    </div>
+                    <div class="skill-box animate slide-in-up">
+                        <h3>Soft Skills</h3>
+                        <ul class="soft-skills-list">
+                            <li>Analytical and Problem-Solving Mindset</li>
+                            <li>Communication Skills</li>
+                            <li>Business Acumen</li>
+                            <li>Curiosity and Eagerness to Learn</li>
+                            <li>Teamwork</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="animate fade-in">Experience</h2>
+                <div class="timeline animate slide-in-right">
+                    <div class="timeline-item animate slide-in-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2023-2024</div>
+                        <div class="timeline-content">
+                            <p>completed the project in the subject.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item animate slide-in-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2024-2025</div>
+                        <div class="timeline-content right">
+                            <p>working on a project for the course</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="animate fade-in">Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card animate zoom-in">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <img src="./image/p1.png" alt="Project 1">
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Library Management</h3>
+                                <p>A Django-based system to manage library resources, books, and members.</p>
+                                <a href="https://github.com/Thehy-IT/Library_Management_py_frw-Django.git" class="btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card animate zoom-in">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <img src="./image/p2.png" alt="Project 2">
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Bookstore Website</h3>
+                                <p>An e-commerce website for selling books, built with web programming technologies.</p>
+                                <a href="https://github.com/Thehy-IT/bookstore_wed-programming.git" class="btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card animate zoom-in">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <img src="./image/p3.png" alt="Project 3">
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Software Engineering</h3>
+                                <p>A collaborative project applying software engineering principles and methodologies.</p>
+                                <a href="https://github.com/Thehy-IT/Software-engineering.git" class="btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card animate zoom-in">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <img src="./image/p4.png" alt="Project 4">
+                            </div>
+                            <div class="project-card-back">
+                                <h3>Data Science Job Analysis</h3>
+                                <p>An analysis project on job market data for Data Science roles.</p>
+                                <a href="https://github.com/Thehy-IT/Project_Job_data-sciene.git" class="btn">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education-section">
+            <div class="container animate fade-in">
+                <div class="education-contact-titles">
+                    <h2 class="education-title">Education</h2>
+                    <h2 class="contact-title">Contact</h2>
+                </div>
+                 <div class="education-contact-grid">
+                    <!-- Container for the flip effect -->
+                    <div class="education-card">
+                        <div class="education-card-inner">
+                            <!-- Front face containing the logo -->
+                            <div class="education-card-front">
+                                <img src="./image/logo.png" alt="UTH Logo">
+                            </div>
+                            <!-- Back face containing the information -->
+                            <div class="education-card-back">
+                                <img src="/image/sv.jpg" alt="Student Avatar" class="student-avatar">
+                                <div class="education-details">
+                                    <h3>University of Transport and Communications in Ho Chi Minh City</h3>
+                                    <p><strong>Major:</strong> Data Science</p>
+                                    <p><strong>Year:</strong> Third-year student</p>
+                                    <p><strong>Grade Point Average (GPA):</strong> 3.5/4.0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                         <a href="https://www.linkedin.com/in/hy-huynh-the-4a2174332/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+                        </a>
+                         <a href="https://www.instagram.com/h_theeshy.1401/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i><span>Instagram</span>
+                        </a>
+                        <a href="https://github.com/Thehy-IT" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i><span>Github</span>
+                        </a>
+                        <a href="https://www.facebook.com/H.TheHy" target="_blank" class="social-link">
+                            <i class="fab fa-facebook-f"></i><span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+             <div class="container contact-container">
+                <div class="contact-form animate slide-in-right">
+                    <form>
+                        <div class="form-group-row">
+                             <input type="text" name="first-name" placeholder="First name">
+                             <input type="text" name="last-name" placeholder="Last name">
+                        </div>
+                        <input type="email" name="email" placeholder="Email">
+                        <input type="text" name="subject" placeholder="Subject">
+                        <textarea name="message" rows="5" placeholder="Message"></textarea>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <a href="#home" class="scroll-to-top-btn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>Designed & Developed by Huynh The Hy © 2025.</p>
+        </div>
+    </footer>
+
+    <script src="./js/051205009083_HuynhTheHy.js"></script>
+</body>
+</html>
