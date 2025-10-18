@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    background-image: url('../img/2.png');
+    background-image: url('../vhimg/2.png');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -88,3 +88,4 @@ article {
     max-width: 900px;
 
 }
+
