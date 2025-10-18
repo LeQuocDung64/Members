@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ - Nguyễn Vân Thiên</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    header h1 {
+      color: #9ee37d;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #9ee37d;
+    }
+
+    .contact {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 40px;
+    }
+
+    h2 {
+      color: #9ee37d;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
+    p.intro {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 40px;
+      font-size: 17px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(158, 227, 125, 0.15);
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #2a2a2a;
+      color: #eee;
+      font-size: 16px;
+      resize: none;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid #9ee37d;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background: #9ee37d;
+      color: #111;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #b6f492;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(158, 227, 125, 0.1);
+    }
+
+    .back-home {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      background: #9ee37d;
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      background: #b6f492;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d0d0d;
+      color: #777;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 20px; }
+      .contact { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nguyễn Vân Thiên</h1>
+    <nav>
+      <a href="thien_index.html">Trang chủ</a>
+      <a href="thien_gioithieu.html">Giới thiệu</a>
+      <a href="thien_kynang.html">Kỹ năng</a>
+      <a href="thien_lienhe.html">Liên hệ</a>
+      <a href="viewAllMembers.html" class="viewAll-button">View All Members</a>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2>Liên hệ với tôi</h2>
+    <p class="intro">Nếu bạn có câu hỏi, ý tưởng hợp tác hoặc chỉ muốn trò chuyện, hãy để lại lời nhắn nhé!</p>
+
+    <form action="#" method="post">
+      <input type="text" name="hoten" placeholder="Họ và tên" required>
+      <input type="email" name="email" placeholder="Email của bạn" required>
+      <input type="tel" name="sdt" placeholder="Số điện thoại (nếu có)">
+      <textarea name="noidung" rows="5" placeholder="Nội dung liên hệ..." required></textarea>
+      <button type="submit">Gửi liên hệ</button>
+    </form>
+
+    <!-- Bản đồ minh họa vị trí -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4861587415645!2d106.68788437502869!3d10.773374089376621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3ec7c9e6a5%3A0xe9e24e09fd0c1ef4!2zVHLGsOG7nW5nIMSQ4bqhaSBIb8OgbmcgTmdoaeG7h3AgSMOyY2ggTWluaCBUUC5IQ00!5e0!3m2!1svi!2s!4v1696424305532!5m2!1svi!2s"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <a href="index.html" class="back-home">⬅ Quay lại trang chủ</a>
+  </section>
+
+  <footer>
+    © 2025 Nguyễn Vân Thiên | Trang liên hệ cá nhân
+  </footer>
+
+</body>
+</html>

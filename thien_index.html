@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Vân Thiên - Web Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #111;
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      background: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 22px;
+      color: #9ee37d;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #9ee37d;
+    }
+
+    .hero {
+      background: url('./img/thien3.jpg') no-repeat center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0 80px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #ddd;
+      margin-bottom: 30px;
+    }
+
+    .hero a {
+      background: #9ee37d;
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .hero a:hover {
+      background: #b6f492;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      background: #1a1a1a;
+      padding: 40px 0;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-box h3 {
+      font-size: 28px;
+      color: #9ee37d;
+    }
+
+    .stat-box p {
+      color: #bbb;
+    }
+
+    .about-me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 80px;
+      background: #111;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text h2 {
+      color: #9ee37d;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: #ccc;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .about-img img {
+      width: 320px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(158, 227, 125, 0.2);
+    }
+
+    .reasons {
+      text-align: center;
+      padding: 60px 80px;
+      background: #1a1a1a;
+    }
+
+    .reasons h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .reason-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: #9ee37d;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      background: #111;
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #1c1c1c;
+      color: #eee;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background: #9ee37d;
+      color: #111;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #b6f492;
+    }
+
+    footer {
+      text-align: center;
+      background: #0d0d0d;
+      color: #777;
+      padding: 20px 0;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 20px; }
+      .hero { padding: 0 30px; }
+      .about-me { padding: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nguyễn Vân Thiên</h1>
+    <nav>
+      <a href="thien_index.html">Trang chủ</a>
+      <a href="thien_gioithieu.html">Giới thiệu</a>
+      <a href="thien_kynang.html">Kỹ năng</a>
+      <a href="thien_lienhe.html">Liên hệ</a>
+      <a href="viewAllMembers.html" class="viewAll-button">View All Members</a>
+    </nav>
+  </header>
+
+  <!-- Ảnh đầu trang (hero) -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Xin chào! Tôi là Thiên</h2>
+      <p>Lập trình viên Web Front-End yêu thích thiết kế sáng tạo và trải nghiệm người dùng.</p>  
+      <a href="#contact">Liên hệ ngay</a>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat-box">
+      <h3>1+</h3>
+      <p>Năm kinh nghiệm</p>
+    </div>
+    <div class="stat-box">
+      <h3>3+</h3>
+      <p>Dự án cá nhân</p>
+    </div>
+    <div class="stat-box">
+      <h3>4+</h3>
+      <p>Kỹ năng lập trình</p>
+    </div>
+  </section>
+
+  <!-- Giới thiệu bản thân kèm ảnh thứ 2 -->
+  <section class="about-me">
+    <div class="about-text">
+      <h2>Về bản thân tôi</h2>
+      <p>Tôi là sinh viên chuyên ngành Công nghệ thông tin, yêu thích sáng tạo và lập trình giao diện web hiện đại. Tôi luôn tìm kiếm cách để biến ý tưởng thành sản phẩm thực tế có giá trị cho người dùng.</p>
+      <p>Tôi thành thạo HTML, CSS, JavaScript và đang học thêm ReactJS để mở rộng khả năng phát triển web động.</p>
+    </div>
+    <div class="about-img">
+      <img src="./img/thien4.jpg" alt="Ảnh Nguyễn Vân Thiên">
+      <img src="./img/thien2.jpg" alt="">
+    </div>
+  </section>
+
+  <section class="reasons">
+    <h2>4 lý do hợp tác cùng tôi</h2>
+    <div class="reason-cards">
+      <div class="card">
+        <h3>1. Chất lượng</h3>
+        <p>Tôi luôn hướng đến mã nguồn sạch, dễ hiểu và giao diện đẹp mắt.</p>
+      </div>
+      <div class="card">
+        <h3>2. Tốc độ</h3>
+        <p>Luôn hoàn thành dự án đúng thời hạn với quy trình làm việc rõ ràng.</p>
+      </div>
+      <div class="card">
+        <h3>3. Sáng tạo</h3>
+        <p>Không ngừng học hỏi và tạo ra những ý tưởng mới trong thiết kế web.</p>
+      </div>
+      <div class="card">
+        <h3>4. Hợp tác</h3>
+        <p>Dễ dàng làm việc nhóm, giao tiếp và hỗ trợ khách hàng tận tâm.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Liên hệ để trao đổi thêm</h2>
+    <form>
+      <input type="text" placeholder="Họ và tên">
+      <input type="email" placeholder="Email">
+      <textarea rows="4" placeholder="Lời nhắn..."></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Nguyễn Vân Thiên | Thiết kế bởi sinh viên Lập trình Web
+  </footer>
+
+</body>
+</html>

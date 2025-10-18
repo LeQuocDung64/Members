@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kỹ năng - Nguyễn Vân Thiên</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    header h1 {
+      color: #9ee37d;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #9ee37d;
+    }
+
+    .skills {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 40px;
+    }
+
+    h2 {
+      color: #9ee37d;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    .skill-group {
+      margin-bottom: 50px;
+    }
+
+    .skill-group h3 {
+      color: #9ee37d;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill span {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #ddd;
+    }
+
+    .bar {
+      background: #1c1c1c;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 16px;
+    }
+
+    .fill {
+      height: 100%;
+      background: linear-gradient(90deg, #9ee37d, #b6f492);
+      width: 0;
+      animation: fill-bar 1.6s ease forwards;
+    }
+
+    @keyframes fill-bar {
+      from { width: 0; }
+    }
+
+    .tools ul, .softskills ul {
+      list-style-type: square;
+      padding-left: 25px;
+    }
+
+    .tools li, .softskills li {
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .back-home {
+      display: block;
+      width: fit-content;
+      margin: 50px auto;
+      background: #9ee37d;
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      background: #b6f492;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d0d0d;
+      color: #777;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 20px; }
+      .skills { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nguyễn Vân Thiên</h1>
+    <nav>
+      <a href="thien_index.html">Trang chủ</a>
+      <a href="thien_gioithieu.html">Giới thiệu</a>
+      <a href="thien_kynang.html">Kỹ năng</a>
+      <a href="thien_lienhe.html">Liên hệ</a>
+      <a href="viewAllMembers.html" class="viewAll-button">View All Members</a>
+    </nav>
+  </header>
+
+  <section class="skills">
+    <h2>Kỹ năng chuyên môn & công cụ</h2>
+
+    <div class="skill-group">
+      <h3>Kỹ năng lập trình</h3>
+      <div class="skill">
+        <span>HTML5 & CSS3</span>
+        <div class="bar"><div class="fill" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>JavaScript cơ bản</span>
+        <div class="bar"><div class="fill" style="width: 70%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>Responsive Web Design</span>
+        <div class="bar"><div class="fill" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <span>Git & GitHub</span>
+        <div class="bar"><div class="fill" style="width: 75%;"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group tools">
+      <h3>Công cụ và phần mềm sử dụng</h3>
+      <ul>
+        <li>Visual Studio Code</li>
+        <li>Figma (thiết kế giao diện)</li>
+        <li>Canva (tạo banner, hình ảnh)</li>
+        <li>Google Chrome DevTools</li>
+      </ul>
+    </div>
+
+    <div class="skill-group softskills">
+      <h3>Kỹ năng mềm</h3>
+      <ul>
+        <li>Làm việc nhóm hiệu quả</li>
+        <li>Tư duy logic và giải quyết vấn đề</li>
+        <li>Quản lý thời gian và lên kế hoạch học tập</li>
+        <li>Giao tiếp thân thiện, chuyên nghiệp</li>
+      </ul>
+    </div>
+
+    <a href="index.html" class="back-home">⬅ Quay lại trang chủ</a>
+  </section>
+
+  <footer>
+    © 2025 Nguyễn Vân Thiên | Trang kỹ năng cá nhân
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu - Nguyễn Vân Thiên</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    header h1 {
+      color: #9ee37d;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #9ee37d;
+    }
+
+    .intro {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 40px;
+    }
+
+    .intro h2 {
+      color: #9ee37d;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .intro p {
+      color: #ccc;
+      font-size: 17px;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .profile img {
+      width: 300px;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(158, 227, 125, 0.3);
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .profile-info td {
+      padding: 10px 0;
+      color: #ccc;
+    }
+
+    .profile-info td:first-child {
+      width: 150px;
+      font-weight: bold;
+      color: #9ee37d;
+    }
+
+    .skills {
+      margin-top: 60px;
+    }
+
+    .skills h3 {
+      color: #9ee37d;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .skills ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .skills li {
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin: 40px 0;
+      padding: 12px 24px;
+      background: #9ee37d;
+      color: #111;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      background: #b6f492;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0d0d0d;
+      color: #777;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 20px; }
+      .intro { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nguyễn Vân Thiên</h1>
+    <nav>
+      <a href="thien_index.html">Trang chủ</a>
+      <a href="thien_gioithieu.html">Giới thiệu</a>
+      <a href="thien_kynang.html">Kỹ năng</a>
+      <a href="thien_lienhe.html">Liên hệ</a>
+      <a href="viewAllMembers.html" class="viewAll-button">View All Members</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h2>Giới thiệu bản thân</h2>
+    <p>Xin chào! Tôi là <b>Nguyễn Vân Thiên</b>, sinh viên ngành <b>Công nghệ thông tin</b> tại <b>Đại học Giao thông Vận tải TP. Hồ Chí Minh</b>. Tôi đam mê lập trình, đặc biệt là thiết kế giao diện người dùng (UI/UX) và phát triển website bằng HTML, CSS và JavaScript.</p>
+
+    <p>Mục tiêu của tôi là trở thành một <b>Front-end Developer</b> chuyên nghiệp, có khả năng kết hợp giữa lập trình và mỹ thuật để tạo ra các sản phẩm web tối ưu về hiệu suất và trải nghiệm người dùng.</p>
+
+    <div class="profile">
+      <img src="./img/thien4.jpg" alt="Ảnh Nguyễn Vân Thiên">
+      <div class="profile-info">
+        <table>
+          <tr>
+            <td>Họ và tên:</td>
+            <td>Nguyễn Vân Thiên</td>
+          </tr>
+          <tr>
+            <td>Ngày sinh:</td>
+            <td>13/07/2005</td>
+          </tr>
+          <tr>
+            <td>Quê quán:</td>
+            <td>Tây Ninh</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td><a href="mailto:nguyenvanthien010201@gmail.com" style="color:#9ee37d;">nguyenvanthien010201@gmail.com</a></td>
+          </tr>
+          <tr>
+            <td>Sở thích:</td>
+            <td>Bi-a, nghe nhạc Pop, thiết kế website</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="skills">
+      <h3>Kỹ năng chuyên môn</h3>
+      <ul>
+        <li>HTML5, CSS3, JavaScript cơ bản</li>
+        <li>Sử dụng Visual Studio Code, Git, GitHub</li>
+        <li>Thiết kế bố cục web theo chuẩn responsive</li>
+        <li>Làm việc nhóm và giao tiếp hiệu quả</li>
+      </ul>
+    </div>
+
+    <div class="skills">
+      <h3>Mục tiêu phát triển</h3>
+      <ul>
+        <li>Nâng cao kỹ năng lập trình JavaScript và ReactJS</li>
+        <li>Tham gia dự án thực tế để rèn luyện kỹ năng teamwork</li>
+        <li>Xây dựng website cá nhân hoàn chỉnh và chuyên nghiệp</li>
+      </ul>
+    </div>
+
+    <a href="thien_index.html" class="back-home">⬅ Quay lại trang chủ</a>
+  </section>
+
+  <footer>
+    © 2025 Nguyễn Vân Thiên | Trang giới thiệu cá nhân
+  </footer>
+
+</body>
+</html>
