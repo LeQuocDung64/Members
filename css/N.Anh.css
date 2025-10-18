@@ -94,7 +94,6 @@ main {
   border-radius: 5px;
 }
 
-/* --- BỐ CỤC MỚI DÙNG FLEXBOX CHO ẢNH VÀ GIỚI THIỆU --- */
 
 .profile-intro-container {
     display: flex; 
@@ -122,9 +121,8 @@ main {
   flex-grow: 1; 
   margin-top: 0;
   padding-bottom: 0; 
-  border-bottom: none; /* Đã chuyển border-bottom lên container cha */
+  border-bottom: none;
 }
-/* --- KẾT THÚC BỐ CỤC MỚI --- */
 
 .course {
   margin-bottom: 35px;
@@ -132,15 +130,13 @@ main {
   border-bottom: 1px dotted #ccc;
 }
 
-/* Đảm bảo chỉ mục cuối cùng không có đường kẻ dưới */
 .course:last-child {
   border-bottom: none;
   margin-bottom: 0;
 }
 
-/* Mục Giới thiệu Bản thân không cần border-bottom nữa vì đã nằm trong container Flex */
 .profile-intro-container + .course {
-    margin-top: 0; /* Đảm bảo khoảng cách từ intro xuống mục tiếp theo là chính xác */
+    margin-top: 0;
 }
 
 .course h2 {
@@ -150,7 +146,6 @@ main {
   padding-bottom: 5px;
 }
 
-/* Gộp h3 */
 .recipes h3,
 .contact h3 {
   color: #004d40;
@@ -159,17 +154,21 @@ main {
   margin-top: 10px;
 }
 
-.recipes ul {
-  list-style-type: none;
+.recipes ul,
+.contact ul {
+  list-style: none !important;
+  margin-left: 0;
   padding-left: 15px;
 }
 
-.recipes ul li {
-  margin-bottom: 8px;
+.recipes ul li,
+.contact ul li {
   position: relative;
+  margin-bottom: 8px;
 }
 
-.recipes ul li::before {
+.recipes ul li::before,
+.contact ul li::before {
   content: '•';
   color: #006633;
   font-weight: bold;
@@ -177,6 +176,7 @@ main {
   width: 1em;
   margin-left: -1em;
 }
+
 
 .contact-info {
   display: block;
