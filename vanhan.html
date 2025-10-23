@@ -1,54 +1,268 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang cá nhân - Nguyễn Văn Hân</title>
-    <link rel="stylesheet" href="./css/vanhan.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nguyễn Văn Hân — CV / Portfolio</title>
+
+  <!-- Google Font (Poppins) - modern readable font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Link tới CSS riêng -->
+  <link rel="stylesheet" href="./css/vanhan.css">
+
+  <!-- Meta cho SEO nhỏ -->
+  <meta name="description" content="CV & Portfolio - Nguyễn Văn Hân. Sinh viên CNTT, lập trình Web & AI.">
 </head>
 <body>
 
-<header>
-    <img src="./img/vhbai7.png" alt="Logo">
-    <h1>Trang cá nhân của Nguyễn Văn Hân</h1>
-</header>
+  <!-- =========================
+       HEADER: Logo trái - Menu phải (fixed)
+       ========================= -->
+  <header class="site-header" role="banner">
+    <!-- Left: Logo (thay src="#" bằng đường dẫn logo của bạn) -->
+    <div class="header-left">
+      <a href="#home" aria-label="Trang chủ">
+        <img class="logo" src="./img/vhbai7.png" alt="Logo Nguyễn Văn Hân">
+      </a>
+    </div>
 
-<nav>
-    <a href="viewAllMembers.html" class="viewAll-button">View All Members</a>
-    <a href="vanhan.html">Trang chủ</a>
-    <a href="vhskills.html">Kỹ năng</a>
-    <a href="vhcontact.html">Liên hệ</a>
-</nav>
+    <!-- Right: Navigation menu -->
+    <div class="header-right">
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Trang chủ</a></li>
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#skills">Kỹ năng</a></li>
+          <li><a href="#certificate">Chứng chỉ</a></li>
+          <li><a href="#projects">Dự án</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
 
-<div class="canhan">
-    <aside>
-        <img src="./img/1.jpg" alt="Nguyễn Văn Hân"   width="180" align="left" style="border-radius: 50%; border: 4px solid #333;">
-    </aside>
+      <!-- Hamburger cho mobile (JS xử lý) -->
+      <button class="hamburger" aria-label="Mở menu">☰</button>
+    </div>
+  </header>
 
-    <main style="font-size: 20px;   line-height: 1.6; margin-left: 200px;">
-        <h2>Giới thiệu bản thân</h2>
-        <p>Xin chào! Tôi là <b>Nguyễn Văn Hân</b>, sinh viên năm 3 ngành Công nghệ Thông tin của 
-        <i>Trường Đại học GTVT TP. Hồ Chí Minh (UTH)</i>. 
-        Tôi yêu thích công nghệ và đặc biệt quan tâm đến lĩnh vực <b>lập trình web</b> 
-        cũng như <b>phát triển phần mềm</b>. 
-        Tôi luôn nỗ lực học hỏi, trau dồi kỹ năng để trở thành một lập trình viên giỏi 
-        và đóng góp cho ngành công nghệ thông tin trong tương lai.</p>
-    </main>
-    <br clear="all">
-</div>
-<hr hstyle="color :white ;">
-    <aside class="muctieu" style="font-size: 18px;   line-height: 1.6; margin: 20px;">
-    <h2>Mục tiêu trong tương lai</h2>
-    <p>Trong tương lai, tôi mong muốn trở thành một lập trình viên web chuyên nghiệp, 
-    có khả năng thiết kế và phát triển các ứng dụng hiện đại, thân thiện với người dùng. 
-    Tôi đặt mục tiêu không ngừng học hỏi công nghệ mới, rèn luyện kỹ năng làm việc nhóm 
-    và góp phần tạo ra những sản phẩm hữu ích cho cộng đồng.</p>
-    </aside>
-<hr hstyle="color :white ;">
-<footer>
-    © 2025 Nguyễn Văn Hân | Thiết kế bởi Văn Hân
-</footer>
+  <!-- =========================
+       HERO / BANNER (full-screen)
+       ========================= -->
+  <main>
+    <section id="home" class="hero" aria-label="Trang chủ">
+      <div class="hero-inner container">
+        <!-- Text -->
+        <div class="hero-text">
+          <h1>Xin chào, tôi là <span>Nguyễn Văn Hân</span></h1>
+          <h3>Sinh viên Công nghệ Thông tin — Lập trình Web & AI</h3>
+          <p>
+            Tôi đam mê lập trình web, học máy và phát triển phần mềm. Tôi thường tham gia dự án thực tế để nâng cao kỹ năng và tạo sản phẩm có giá trị.
+          </p>
+          <p class="hero-actions">
+            <a class="btn" href="#contact">Liên hệ ngay</a>
+            <a class="btn ghost" href="#projects">Xem dự án</a>
+          </p>
+        </div>
 
+        <!-- Placeholder ảnh (thay src="#" bằng ảnh thật của bạn) -->
+        <div class="hero-photo" aria-hidden="true">
+          <img src="./img/1.jpg" alt="Ảnh đại diện — Nguyễn Văn Hân">
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         GIỚI THIỆU / THÔNG TIN CÁ NHÂN
+         ========================= -->
+<!-- Giới thiệu bản thân -->
+<section id="about" class="container section">
+  <h2>Giới thiệu bản thân</h2>
+  <div class="about-grid">
+    <!-- Ảnh cá nhân -->
+    <div class="about-left">
+      <img src="./img/vh3.png" alt="Ảnh Nguyễn Văn Hân">
+    </div>
+
+    <!-- Nội dung giới thiệu -->
+    <div class="about-right">
+      <p>
+        Xin chào! Tôi là <strong>Nguyễn Văn Hân</strong>, sinh viên năm 3 ngành 
+        <strong>Công nghệ Thông tin</strong> tại 
+        <em>Trường Đại học Giao thông Vận tải TP. Hồ Chí Minh (UTH)</em>.
+        Tôi yêu thích lập trình web và phát triển ứng dụng, không ngừng học hỏi công nghệ mới
+        và nâng cao kỹ năng qua các dự án thực tế.
+      </p>
+      <p><strong>Mục tiêu nghề nghiệp:</strong> Trở thành lập trình viên Fullstack, tham gia vào các dự án thực tế, xây dựng sản phẩm có giá trị cho người dùng và phát triển năng lực AI.</p>
+
+      <!-- Thông tin cá nhân -->
+        <div class="personal-info">
+        <ul>
+            <li><strong>Họ và tên:</strong> Nguyễn Văn Hân</li>
+            <li><strong>Ngày sinh:</strong> 08/12/2005</li>
+            <li><strong>Giới tính:</strong> Nam</li>
+            <li><strong>SĐT:</strong> 0367370159</li>
+        </ul>
+        <ul>
+            <li><strong>Email: </strong> vanhan812@gmail.com</li>
+            <li><strong>Địa chỉ: </strong> TP. Hồ Chí Minh</li>
+            <li><strong>GitHub: </strong> github.com/vanhan812</li>
+            <li><strong>Website nhóm : </strong> group4</li>
+        </ul>
+            </div>
+        </div>
+
+    </div>
+        </div> 
+            <div class="hobbies">
+            <h3>Sở thích</h3>
+            <ul>
+            <li>💻 Lập trình & khám phá công nghệ mới</li>
+            <li>🎮 Chơi game chiến thuật</li>
+            <li>📖 Đọc truyện chữ</li>
+            <li>📚 Học ngoại ngữ & kỹ năng mới</li>
+            </ul>
+        </div>
+</section>
+
+
+    <!-- =========================
+         KỸ NĂNG & NGÔN NGỮ
+         - layout dùng grid/flex
+         - các thanh progress có data-percent (JS sẽ animate)
+         ========================= -->
+    <section id="skills" class="container" aria-label="Kỹ năng">
+      <h2>Kỹ năng & Ngôn ngữ</h2>
+
+      <div class="skills-grid">
+        <!-- Kỹ năng -->
+        <div class="skills-left">
+          <h3>Kỹ năng chính</h3>
+
+          <!-- Skill item: mỗi skill-bar có data-percent -->
+          <div class="skill-item">
+            <div class="skill-title">C++</div>
+            <div class="skill-bar" data-percent="65"><div class="skill-fill"><span>85%</span></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-title">Python</div>
+            <div class="skill-bar" data-percent="60"><div class="skill-fill"><span>75%</span></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-title">HTML / CSS</div>
+            <div class="skill-bar" data-percent="70"><div class="skill-fill"><span>90%</span></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-title">JavaScript</div>
+            <div class="skill-bar" data-percent="65"><div class="skill-fill"><span>65%</span></div></div>
+          </div>
+        </div>
+
+        <!-- Ngôn ngữ -->
+        <div class="skills-right">
+          <h3>Ngôn ngữ</h3>
+          <ul class="lang-list">
+            <li>Tiếng Việt — Bản ngữ</li>
+            <li>Tiếng Anh — Trình độ giao tiếp (Intermediate)</li>
+            <li>Tiếng Nhật — Sơ cấp</li>
+          </ul>
+
+          <!-- 4 ảnh cá nhân (yêu cầu nâng cao: tối thiểu 4 ảnh) -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CHỨNG CHỈ
+         - Nếu không có, ghi "Không có" nhưng vẫn show UI đẹp
+         ========================= -->
+    <section id="certificate" class="container" aria-label="Chứng chỉ">
+      <h2>Chứng chỉ & Giải thưởng</h2>
+
+      <div class="cert-container">
+        <!-- Nếu không có chứng chỉ thực tế, hiển thị "Không có" -->
+        <div class="cert-card empty">
+          <h3>Không có</h3>
+          <p>Hiện tại chưa có chứng chỉ chính thức. Sẽ cập nhật khi có.</p>
+        </div>
+
+        <!-- mẫu (bạn có thể bỏ / thay ảnh khi cần) -->
+        <div class="cert-card empty">
+          <h3>Không có</h3>
+          <p>Hiện tại chưa có chứng chỉ chính thức. Sẽ cập nhật khi có.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         DỰ ÁN
+         ========================= -->
+    <section id="projects" class="container" aria-label="Dự án">
+      <h2>Dự án</h2>
+        <div class="projects-grid">
+            <article class="project-card">
+        <div class="project-logo koi-logo">
+            <span class="icon">🐟</span>
+        </div>
+        <h3>Website Chăm Sóc Cá Koi</h3>
+        <p>Cung cấp các dịch vụ chăm sóc Cá Koi</p>
+        <a href="https://github.com/vanhan812/C-Group-CNPM-CN2303CLCB" rel="noopener">Xem chi tiết</a>
+        </article>
+
+        <article class="project-card">
+        <div class="project-logo gray-person-logo">
+            <span class="icon">👤</span>
+        </div>
+        <h3>Website giới thiệu bản thân</h3>
+        <p>Giới thiệu về bản thân</p>
+        <a href="https://lequocdung64.github.io/Members/vanhan.html" rel="noopener">Xem chi tiết</a>
+        </article>
+    </div>
+    </section>
+
+    <!--  LIÊN HỆ-->
+        <section id="contact" class="container" aria-label="Liên hệ">
+        <h2>Liên hệ</h2>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+            <p><strong>Họ và tên:</strong> Nguyễn Văn Hân</p>
+            <p><strong>Ngày sinh:</strong> 08/12/2005</p>
+            <p><strong>Giới tính:</strong> Nam</p>
+            <p><strong>Điện thoại:</strong> 0367370159</p>
+            <p><strong>Email:</strong> <a href="mailto:vanhan812@gmail.com">vanhan812@gmail.com</a></p>
+            <p><strong>Địa chỉ:</strong> TP. Hồ Chí Minh</p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/vanhan812" target="_blank" rel="noopener">github.com/vanhan812</a></p>
+            </div>
+
+            <div class="contact-form-wrap">
+            <form class="contact-form" action="#" method="post" autocomplete="off">
+                <label for="c-name">Họ và tên</label>
+                <input id="c-name" name="name" type="text" placeholder="Nhập họ tên..." required>
+
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" placeholder="Nhập email..." required>
+
+                <label for="c-message">Nội dung</label>
+                <textarea id="c-message" name="message" rows="5" placeholder="Viết tin nhắn..." required></textarea>
+
+                <button class="btn" type="submit">Gửi</button>
+            </form>
+            </div>
+        </div>
+        </section>
+
+    <footer>
+      <p>© 2025 Nguyễn Văn Hân — Portfolio • Thiết kế bởi Văn Hân</p>
+    </footer>
+
+  </main>
+
+  <!-- Link tới JS riêng -->
+  <script src="./js/vhscript.js" defer></script>
 </body>
 </html>
-
