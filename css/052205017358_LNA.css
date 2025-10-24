@@ -31,7 +31,7 @@ body {
 
 
 #home, #ky-nang, #chung-chi, #du-an, #gioi-thieu, #lien-he {
-    background-image: url('./img/den.jpg');
+    background-image: url('../img/den.jpg');
 }
 
 
@@ -98,3 +98,4 @@ body {
     visibility: visible;
 
 }
+
