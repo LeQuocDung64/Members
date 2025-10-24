@@ -1044,6 +1044,14 @@ img {
   .home-container {
     column-gap: 1.75rem;
   }
+  
+  .home-container {
+    justify-items: center;
+  }
+   .about-container,
+  .resume-container {
+    justify-items: center;
+  }
 }
 
 /* For small devices */
@@ -1064,5 +1072,12 @@ img {
 
   .skills-items {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .home-container {
+    justify-items: center;
+  }
+   .about-container,
+  .resume-container {
+    justify-items: center;
   }
 }
