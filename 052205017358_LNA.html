@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân của Nhật Anh</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="./css/052205017358_LNA.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#151F33', // Darker Navy for Footer/Accents
+                        'secondary-light': '#F4F7F9', // Off-White Background
+                        'accent-blue': '#10B981', // Emerald Green
+                        'accent-dark': '#1F2937', // Dark Slate Gray for Card BG
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800">
+
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="viewAllMembers.html" class="text-2xl font-extrabold text-primary-dark hover:text-accent-blue transition duration-300 tracking-wider">
+                Nhóm
+            </a>
+
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link active text-base font-semibold text-gray-700 hover:text-accent-blue transition duration-300 py-2">Trang Chủ</a>
+                <a href="#gioi-thieu" class="nav-link text-base font-semibold text-gray-700 hover:text-accent-blue transition duration-300 py-2">Giới Thiệu</a>
+                <a href="#ky-nang" class="nav-link text-base font-semibold text-gray-700 hover:text-accent-blue transition duration-300 py-2">Kỹ Năng</a>
+                <a href="#chung-chi" class="nav-link text-base font-semibold text-gray-700 hover:text-accent-blue transition duration-300 py-2">Chứng Chỉ</a>
+                <a href="#du-an" class="nav-link text-base font-semibold text-gray-700 hover:text-accent-blue transition duration-300 py-2">Dự Án</a>
+                <a href="#lien-he" class="nav-link text-base font-semibold text-gray-700 hover:text-accent-blue transition duration-300 py-2">Liên Hệ</a>
+            </nav>
+
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-blue">
+                <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden">
+            <nav class="flex flex-col space-y-2 p-4 bg-gray-50 border-t border-gray-200">
+                <a href="#home" class="nav-link text-base font-medium text-gray-700 hover:bg-gray-100 p-2 rounded-md">Trang Chủ</a>
+                <a href="#gioi-thieu" class="nav-link text-base font-medium text-gray-700 hover:bg-gray-100 p-2 rounded-md">Giới Thiệu</a>
+                <a href="#ky-nang" class="nav-link text-base font-medium text-gray-700 hover:bg-gray-100 p-2 rounded-md">Kỹ Năng</a>
+                <a href="#chung-chi" class="nav-link text-base font-medium text-gray-700 hover:bg-gray-100 p-2 rounded-md">Chứng Chỉ</a>
+                <a href="#du-an" class="nav-link text-base font-medium text-gray-700 hover:bg-gray-100 p-2 rounded-md">Dự Án</a>
+                <a href="#lien-he" class="nav-link text-base font-medium text-gray-700 hover:bg-gray-100 p-2 rounded-md">Liên Hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="bg-image-section">
+            <div class="content-overlay text-white">
+                <div class="max-w-7xl mx-auto px-4 w-full">
+
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-16 py-24">
+
+                        <div class="w-full md:w-2/5 flex justify-center order-1 mb-8 md:mb-0">
+                            <img src="./img/NAnhp.jpg"
+                                 alt="Ảnh đại diện"
+                                 class="rounded-xl mx-auto border-4 border-accent-blue shadow-2xl transform transition duration-500 hover:scale-105 w-64 h-96 object-cover ring-4 ring-white/20 animated-element delay-3">
+                        </div>
+
+                        <div class="w-full md:w-3/5 text-center md:text-left order-2">
+                            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">
+                                <span class="text-white block animated-element delay-1">Lê Nhật Anh</span>
+                                
+                            </h1>
+
+                            <p class="text-lg sm:text-xl mb-8 font-light max-w-xl text-gray-300 animated-element delay-3">
+                                Chào mừng bạn đến với không gian của tôi! Tôi là người yêu thích công nghệ, sáng tạo và đang theo đuổi ước mơ trở thành Kỹ Sư Cầu Nối (BrSE) làm việc với thị trường Nhật Bản.
+                            </p>
+
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animated-element delay-4">
+                                <a href="#du-an" class="inline-block bg-accent-blue text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-emerald-600 transition duration-300 transform hover:scale-105">
+                                    Xem Dự Án
+                                </a>
+                                <a href="#lien-he" class="inline-block text-white font-bold py-3 px-8 rounded-full text-lg border-2 border-white transition duration-300 hover:bg-white hover:text-primary-dark">
+                                    Liên Hệ
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gioi-thieu" class="bg-image-section">
+            <div class="content-overlay text-white section-padding">
+                <h2 class="text-4xl font-bold text-center text-white mb-4 animated-element">Giới Thiệu</h2>
+
+
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-col md:flex-row items-center md:items-start gap-12 mb-16 p-8 bg-accent-dark/90 rounded-xl shadow-2xl border-t-8 border-accent-blue animated-element delay-1">
+
+                        <div class="w-full md:w-1/3 flex justify-center p-4 order-1 animated-element delay-2">
+                            <img src="./img/NAnhp2.jpg"
+                                 alt="Ảnh chân dung cá nhân"
+                                 class="rounded-xl shadow-2xl w-full max-w-sm object-cover border-4 border-white transform hover:scale-105 transition duration-500 ease-in-out">
+                        </div>
+
+                        <div class="w-full md:w-2/3 text-center md:text-left order-2">
+                            <h3 class="text-3xl font-bold text-accent-blue mb-4 animated-element delay-3">Thông tin chung</h3>
+                            <p class="text-lg text-gray-300 leading-relaxed border-l-4 border-gray-500 pl-4 italic mb-6 animated-element delay-4">
+                                 Xin chào! Tôi là Lê Nhật Anh, sinh viên năm 3 ngành Công nghệ Thông tin tại Trường Đại Học Giao Thông Vận Tải TP.HCM. Tôi yêu thích công nghệ và định hướng trở thành Kỹ Sư Cầu Nối (BrSE) làm việc với thị trường Nhật Bản. Tôi đang tích cực trau dồi kiến thức lập trình, kỹ năng giao tiếp và tiếng Nhật để chuẩn bị cho công việc trong tương lai.
+                            </p>
+
+                            <div class="flex justify-center md:justify-start space-x-6 mt-6 border-t pt-4 border-gray-600 animated-element delay-5">
+                                <a href="https://www.facebook.com/share/1JZtLWMDbd/?mibextid=wwXIfr" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300 transform hover:scale-110">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.564V12h3.097l-.497 3.757h-2.6V22c4.781-.75 8.438-4.887 8.438-9.878Z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+
+                                <a href="https://www.tiktok.com/@chanhzuiii82?_t=ZS-90lhjU2nJHF&_r=1" target="_blank" class="text-gray-400 hover:text-white transition duration-300 transform hover:scale-110">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12.5 1.5c-3.13 0-5.67 2.54-5.67 5.67v9.16c0 1.52.82 2.85 2.05 3.53.5.28 1.05.42 1.61.42 1.95 0 3.53-1.58 3.53-3.53V10.8h2.83v5.67c0 1.52.82 2.85 2.05 3.53.5.28 1.05.42 1.61.42 1.95 0 3.53-1.58 3.53-3.53V7.17c0-3.13-2.54-5.67-5.67-5.67h-2.83zM10.83 10.8V7.17c0-1.04.85-1.88 1.88-1.88h1.88v-1.88h-1.88c-2.09 0-3.77 1.68-3.77 3.77v3.54h3.77z"/>
+                                    </svg>
+                                </a>
+
+                                <a href="https://youtube.com/@nhatanh-eh2yt?si=_JIXRJkWFgvIclRp" target="_blank" class="text-gray-400 hover:text-red-600 transition duration-300 transform hover:scale-110">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19.615 2.152a2.66 2.66 0 0 0-2.39-2.154C15.087-.002 12 0 12 0s-3.087-.002-5.225.006A2.66 2.66 0 0 0 4.385 2.152C2.185 3.2 2 6.13 2 12c0 5.87 0.185 8.8 2.385 9.848A2.66 2.66 0 0 0 7.225 24C9.363 24.002 12 24 12 24s2.637 0 4.775-.006a2.66 2.66 0 0 0 2.39-2.152C21.815 20.8 22 17.87 22 12c0-5.87-0.185-8.8-2.385-9.848ZM10 16.5v-9l6 4.5-6 4.5Z"/>
+                                    </svg>
+                                </a>
+
+                                <a href="https://www.instagram.com/lenhat1312?igsh=bXlyanBxdHhoM3I1&utm_source=qr" target="_blank" class="text-gray-400 hover:text-pink-600 transition duration-300 transform hover:scale-110">
+                                     <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.715.01 3.655.068 1.05.06 1.79.219 2.425.469.66.25 1.15.58 1.635 1.065.485.485.815.975 1.065 1.635.25.635.41 1.375.468 2.425.06.94.067 1.225.067 3.655s-.007 2.715-.067 3.655c-.059 1.05-.219 1.79-.469 2.425-.25.66-.58 1.15-1.065 1.635-.485.485-.975.815-1.635 1.065-.635.25-1.375.41-2.425.468-.94.06-1.225.067-3.655.067s-2.715-.007-3.655-.067c-1.05-.059-1.79-.219-2.425-.469-.66-.25-.58-1.15-1.065-1.635-.485-.485-.815-.975-1.065-1.635-.25-.635-.41-1.375-.468-2.425-.06-.94-.067-1.225-.067-3.655s.007-2.715.067-3.655c.059-1.05.219-1.79.469-2.425.25-.66.58-1.15 1.065-1.635.485-.485.975-.815 1.635-1.065.635-.25 1.375-.41 2.425-.468.94-.06 1.225-.067 3.655-.067Zm0 2.132a9.718 9.718 0 1 0 0 19.436 9.718 9.718 0 0 0 0-19.436Zm-.003-7.872a3.372 3.372 0 1 0 0 6.744 3.372 3.372 0 0 0 0-6.744Zm7.177-.912a1.288 1.288 0 1 1 0 2.576 1.288 1.288 0 0 1 0-2.576Z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+                        <div class="bg-accent-dark/90 p-8 rounded-xl shadow-2xl border-t-4 border-accent-blue hover:shadow-3xl transition duration-300 animated-element delay-2">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center text-white">
+                                <span class="mr-3 text-3xl text-accent-blue">🚀</span> Sở Thích & Phát Triển
+                            </h3>
+                            <ul class="space-y-3 text-gray-300 list-none pl-0">
+                                <li class="flex items-start"><span class="mr-2 text-accent-blue">✅</span> Đọc sách khoa học và tiểu thuyết (giúp mở rộng tư duy).</li>
+                                <li class="flex items-start"><span class="mr-2 text-accent-blue">✅</span> Chạy bộ buổi sáng để duy trì sức khỏe và sự tập trung cao độ.</li>
+                                <li class="flex items-start"><span class="mr-2 text-accent-blue">✅</span> Học thêm ngôn ngữ mới .</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-accent-dark/90 p-8 rounded-xl shadow-2xl border-t-4 border-primary-dark hover:shadow-3xl transition duration-300 animated-element delay-3">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center text-white">
+                                <span class="mr-3 text-3xl text-primary-dark">🎯</span> Mục Tiêu Nghề Nghiệp
+                            </h3>
+                            <ul class="space-y-3 text-gray-300 list-none pl-0">
+                                <li class="flex items-start"><span class="mr-2 text-primary-dark">✅</span> Trở thành Kỹ sư Cầu nối (BrSE) chuyên nghiệp tại thị trường Nhật Bản.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary-dark">✅</span> Đạt trình độ tiếng Nhật JLPT N2 và nâng cao kỹ năng đàm phán, quản lý.</li>
+                                <li class="flex items-start"><span class="mr-2 text-primary-dark">✅</span> Hoàn thành chứng chỉ về quản lý dự án (ví dụ: Scrum Master).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="ky-nang" class="bg-image-section section-padding">
+            <div class="content-overlay text-white">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center mb-4 text-white animated-element">Kỹ Năng Chuyên Môn</h2>
+                    <p class="text-xl text-gray-400 text-center mb-16 animated-element delay-1">Các công nghệ và công cụ tôi đang sử dụng</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                        <div class="bg-accent-dark/90 p-8 rounded-2xl shadow-2xl border-t-4 border-accent-blue hover:scale-[1.02] transition duration-300 animated-element delay-2">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center text-accent-blue">
+                                <span class="mr-3 text-4xl">🌐</span> Phát Triển Frontend
+                            </h3>
+                            <div class="space-y-6 text-gray-200">
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">HTML5 & CSS3 (Tailwind)</span>
+                                        <span class="text-sm font-bold text-accent-blue">90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-accent-blue h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">JavaScript (ES6+)</span>
+                                        <span class="text-sm font-bold text-accent-blue">85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-accent-blue h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">React / Vue.js / Angular</span>
+                                        <span class="text-sm font-bold text-accent-blue">75%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-accent-blue h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-accent-dark/90 p-8 rounded-2xl shadow-2xl border-t-4 border-red-500 hover:scale-[1.02] transition duration-300 animated-element delay-3">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center text-red-400">
+                                <span class="mr-3 text-4xl">💾</span> Phát Triển Backend
+                            </h3>
+                            <div class="space-y-6 text-gray-200">
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">Node.js (Express)</span>
+                                        <span class="text-sm font-bold text-red-400">80%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-red-400 h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">Python (Django, Flask)</span>
+                                        <span class="text-sm font-bold text-red-400">65%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-red-400 h-2 rounded-full" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">Cơ sở dữ liệu (Mongo, Postgre)</span>
+                                        <span class="text-sm font-bold text-red-400">70%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-red-400 h-2 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-accent-dark/90 p-8 rounded-2xl shadow-2xl border-t-4 border-yellow-400 hover:scale-[1.02] transition duration-300 animated-element delay-4">
+                            <h3 class="text-2xl font-bold mb-6 flex items-center text-yellow-400">
+                                <span class="mr-3 text-4xl">🛠️</span> Công Cụ & Quản Lý
+                            </h3>
+                            <div class="space-y-6 text-gray-200">
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">Git & GitHub/GitLab</span>
+                                        <span class="text-sm font-bold text-yellow-400">90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">Docker & CI/CD</span>
+                                        <span class="text-sm font-bold text-yellow-400">70%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="flex justify-between items-center mb-1">
+                                        <span class="font-medium">Phương pháp Agile / Scrum</span>
+                                        <span class="text-sm font-bold text-yellow-400">80%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chung-chi" class="bg-image-section section-padding">
+            <div class="content-overlay text-white">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-white mb-4 animated-element">Chứng Chỉ & Giải Thưởng</h2>
+                    <p class="text-xl text-gray-400 text-center mb-16 animated-element delay-1">Các thành tựu quan trọng củng cố định hướng Kỹ sư Cầu nối</p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+                        <div class="group relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.05] transition duration-300 animated-element delay-2">
+                            <img src="https://placehold.co/400x300/10B981/ffffff?text=JLPT+N2"
+                                 alt="Chứng chỉ JLPT N2"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-2">
+                                <p class="text-white text-lg font-bold p-2 text-center">JLPT N3 (Thành thạo Tiếng Nhật)</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.05] transition duration-300 animated-element delay-3">
+                            <img src="https://placehold.co/400x300/151F33/ffffff?text=Google+PM+Cert"
+                                 alt="Chứng chỉ Google Project Management"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-2">
+                                <p class="text-white text-lg font-bold p-2 text-center">Google Project Management (Kỹ năng PM, Agile/Scrum cơ bản)</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.05] transition duration-300 animated-element delay-4">
+                            <img src="https://placehold.co/400x300/F4F7F9/151F33?text=AZ-900"
+                                 alt="Chứng chỉ Microsoft Azure Fundamentals AZ-900"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-2">
+                                <p class="text-white text-lg font-bold p-2 text-center">Microsoft AZ-900 (Kiến thức Cloud Azure Cơ bản)</p>
+                            </div>
+                        </div>
+
+                        <div class="group relative rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.05] transition duration-300 animated-element delay-5">
+                            <img src="https://placehold.co/400x300/1F2937/10B981?text=TOEIC+750+"
+                                 alt="Chứng chỉ TOEIC 750+"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 p-2">
+                                <p class="text-white text-lg font-bold p-2 text-center">TOEIC 750+ (Kỹ năng giao tiếp Tiếng Anh bổ sung)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </section>
+        <section id="du-an" class="bg-image-section section-padding">
+            <div class="content-overlay text-white">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-white mb-4 animated-element">Các Dự Án Tiêu Biểu</h2>
+                    <p class="text-xl text-gray-400 text-center mb-16 animated-element delay-1">Những sản phẩm tôi đã dày công phát triển</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <div class="bg-accent-dark/90 rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition duration-500 backdrop-blur-sm border-t-4 border-accent-blue animated-element delay-2">
+                            <img src="https://placehold.co/600x300/1C2E4A/ffffff?text=LMS+Project" alt="Hệ Thống Quản Lý Học Tập" class="w-full h-48 object-cover transform hover:scale-[1.05] transition duration-500">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-accent-blue mb-2">Hệ Thống Quản Lý Học Tập (LMS)</h3>
+                                <p class="text-gray-300 mb-4 text-sm">Nền tảng e-learning với tính năng đăng ký, theo dõi tiến độ và kiểm tra trực tuyến. Xây dựng theo kiến trúc Microservices.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block bg-accent-blue text-white text-xs font-semibold px-3 py-1 rounded-full">React</span>
+                                    <span class="inline-block bg-gray-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Node.js</span>
+                                    <span class="inline-block bg-red-700 text-white text-xs font-semibold px-3 py-1 rounded-full">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-accent-dark/90 rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition duration-500 backdrop-blur-sm border-t-4 border-red-500 animated-element delay-3">
+                            <img src="https://placehold.co/600x300/3B82F6/ffffff?text=Booking+App" alt="Ứng Dụng Đặt Lịch Hẹn" class="w-full h-48 object-cover transform hover:scale-[1.05] transition duration-500">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-red-400 mb-2">Ứng Dụng Đặt Lịch Hẹn</h3>
+                                <p class="text-gray-300 mb-4 text-sm">Cho phép người dùng đặt và quản lý lịch hẹn với các dịch vụ (spa, phòng khám) một cách dễ dàng và tự động hóa.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block bg-yellow-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Vue.js</span>
+                                    <span class="inline-block bg-green-700 text-white text-xs font-semibold px-3 py-1 rounded-full">PostgreSQL</span>
+                                    <span class="inline-block bg-gray-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Docker</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-accent-dark/90 rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition duration-500 backdrop-blur-sm border-t-4 border-yellow-400 animated-element delay-4">
+                            <img src="https://placehold.co/600x300/1C2E4A/ffffff?text=E-commerce+Mini" alt="Thương Mại Điện Tử Mini" class="w-full h-48 object-cover transform hover:scale-[1.05] transition duration-500">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-yellow-400 mb-2">Trang Thương Mại Điện Tử Mini</h3>
+                                <p class="text-gray-300 mb-4 text-sm">Giao diện mua sắm đơn giản, tích hợp giỏ hàng và thanh toán cơ bản sử dụng các thư viện UI hiện đại.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-block bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Angular</span>
+                                    <span class="inline-block bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">MongoDB</span>
+                                    <span class="inline-block bg-accent-blue text-white text-xs font-semibold px-3 py-1 rounded-full">Tailwind CSS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-16 animated-element delay-5">
+                         <a href="https://github.com/tentrengithub" target="_blank" class="inline-flex items-center text-accent-blue hover:text-emerald-400 font-bold text-xl transition duration-300 p-3 border-2 border-accent-blue rounded-lg hover:bg-accent-blue/20">
+                            Xem tất cả trên GitHub
+                            <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lien-he" class="bg-image-section">
+            <div class="content-overlay text-white section-padding">
+                <h2 class="text-4xl font-bold text-center text-white mb-4 animated-element">Liên Hệ</h2>
+                <p class="text-xl text-gray-400 text-center mb-12 max-w-3xl mx-auto animated-element delay-1">Hãy gửi tin nhắn cho tôi hoặc kết nối qua các kênh sau</p>
+
+                <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                    <div class="space-y-6 p-6 bg-accent-dark/90 rounded-xl shadow-2xl border-l-4 border-accent-blue animated-element delay-2">
+                        <h3 class="text-2xl font-bold text-white mb-4">Thông Tin</h3>
+                        <div class="flex items-center space-x-4 p-3 bg-gray-700/50 rounded-lg">
+                            <span class="text-accent-blue text-2xl">📧</span>
+                            <a href="mailto:emailcuaban@example.com" class="text-gray-200 font-medium hover:text-accent-blue transition duration-300">anhln7358@ut.edu.vn</a>
+                        </div>
+                        <div class="flex items-center space-x-4 p-3 bg-gray-700/50 rounded-lg">
+                            <span class="text-accent-blue text-2xl">📞</span>
+                            <span class="text-gray-200 font-medium">(+84) 354 503 477 </span>
+                        </div>
+                        <div class="flex items-center space-x-4 p-3 bg-gray-700/50 rounded-lg">
+                            <span class="text-accent-blue text-2xl">🔗</span>
+                            <a href="https://github.com/dashboard" target="_blank" class="text-gray-200 font-medium hover:text-accent-blue transition duration-300">github.nhatanh.</a>
+                        </div>
+                        <div class="flex items-center space-x-4 p-3 bg-gray-700/50 rounded-lg">
+                            <span class="text-accent-blue text-2xl">📍</span>
+                            <span class="text-gray-200 font-medium">TP. Hồ Chí Minh, Việt Nam</span>
+                        </div>
+                    </div>
+
+                    <form class="space-y-4 p-6 bg-accent-dark/90 rounded-xl shadow-2xl border-l-4 border-primary-dark animated-element delay-3">
+                        <h3 class="text-2xl font-bold text-white mb-4">Gửi Tin Nhắn</h3>
+                        <input type="text" placeholder="Tên của bạn" class="w-full p-3 border-2 border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-accent-blue focus:border-accent-blue transition duration-300" required>
+                        <input type="email" placeholder="Email của bạn" class="w-full p-3 border-2 border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-accent-blue focus:border-accent-blue transition duration-300" required>
+                        <textarea placeholder="Tin nhắn của bạn" rows="5" class="w-full p-3 border-2 border-gray-600 bg-gray-700/50 text-white rounded-lg focus:ring-accent-blue focus:border-accent-blue transition duration-300" required></textarea>
+                        <button type="submit" class="w-full bg-accent-blue text-white font-bold py-3 rounded-lg shadow-lg hover:bg-emerald-600 transition duration-300 transform hover:scale-[1.01]">
+                            Gửi Tin Nhắn Ngay
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-primary-dark text-white text-center py-6 mt-0">
+        <p>&copy; 2025 Trang cá nhân của Lê Nhật Anh.</p>
+    </footer>
+
+    <button id="back-to-top"
+            aria-label="Cuộn lên đầu trang"
+            class="fixed bottom-6 right-6 z-50 p-3 bg-accent-blue text-white rounded-full shadow-2xl opacity-0 invisible hover:bg-emerald-600 transition duration-300 transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const desktopNavLinks = document.querySelectorAll('header nav.hidden.md\\:flex .nav-link');
+            const sections = document.querySelectorAll('section');
+            const backToTopButton = document.getElementById('back-to-top');
+            const animatedElements = document.querySelectorAll('.animated-element');
+
+
+            // 1. Mobile Menu Toggle functionality
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 2. Highlight Active Navigation Link on Scroll (Gạch chân)
+            const navObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const navObserver = new IntersectionObserver((entries) => {
+                const visibleSections = entries.filter(entry => entry.isIntersecting).sort((a, b) => {
+                    return a.boundingClientRect.top - b.boundingClientRect.top;
+                });
+
+                if (visibleSections.length > 0) {
+                    const id = visibleSections[0].target.getAttribute('id');
+                    const currentLink = document.querySelector(`header nav.hidden.md\\:flex a[href="#${id}"]`);
+
+                    desktopNavLinks.forEach(link => link.classList.remove('active'));
+                    if (currentLink) {
+                        currentLink.classList.add('active');
+                    }
+                }
+            }, navObserverOptions);
+
+            sections.forEach(section => {
+                navObserver.observe(section);
+            });
+
+            const homeLink = document.querySelector('nav a[href="#home"]');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+            
+            // 3. Back to Top Button Logic
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // 4. Reveal on Scroll (Hiệu ứng hiển thị)
+            const revealObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealObserverOptions);
+
+            animatedElements.forEach(element => {
+                revealObserver.observe(element);
+            });
+
+        });
+    </script>
+</body>
+</html>
